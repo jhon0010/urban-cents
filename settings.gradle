@@ -1,0 +1,25 @@
+//This block manages plugin repositories and versions.
+pluginManagement {
+    plugins {
+        id 'org.springframework.boot' version '2.7.16'
+        id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+        id 'java'
+    }
+}
+
+
+dependencyResolutionManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+
+rootProject.name = 'urban-cents'
+
+// Add the related subprojects, urban-cents act as a root project for the included ones.
+include 'microservices:billing-service'
+
+
+

@@ -1,0 +1,16 @@
+group = 'com.urban-cents'
+version = '0.0.1-SNAPSHOT'
+
+buildscript {
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+}
+
+subprojects {
+
+	dependencies {
+	}
+
+}
