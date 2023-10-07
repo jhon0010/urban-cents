@@ -1,16 +1,44 @@
-group = 'com.urban-cents'
-version = '0.0.1-SNAPSHOT'
+plugins {
+	id 'java'
+	id 'java-library'
+	id 'org.springframework.boot' version '2.5.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
 
-buildscript {
-	repositories {
-		mavenCentral()
-		jcenter()
+allprojects {
+	group = 'com.urban-cents'
+	version = '0.0.1-SNAPSHOT'
+	java.sourceCompatibility(JavaVersion.VERSION_11)
+	java.targetCompatibility(JavaVersion.VERSION_11)
+
+	test {
+		useJUnitPlatform()
 	}
 }
 
 subprojects {
 
+	apply plugin: 'java'
+	apply plugin: 'java-library'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'org.springframework.boot'
+
 	dependencies {
+
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+
+		implementation('org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE')
+		implementation('io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE')
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+		testImplementation 'com.h2database:h2'
+
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+		runtimeOnly 'com.h2database:h2'
 	}
 
 }

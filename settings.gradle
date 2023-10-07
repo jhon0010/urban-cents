@@ -1,13 +1,4 @@
-//This block manages plugin repositories and versions.
-pluginManagement {
-    plugins {
-        id 'org.springframework.boot' version '2.7.16'
-        id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-        id 'java'
-    }
-}
-
-
+//This block manages the repositories where the dependencies are fetched from.
 dependencyResolutionManagement {
     repositories {
         gradlePluginPortal()
