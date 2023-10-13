@@ -1,16 +1,4 @@
-//This block manages the repositories where the dependencies are fetched from.
-dependencyResolutionManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
-
-
 rootProject.name = 'urban-cents'
-
-// Add the related subprojects, urban-cents act as a root project for the included ones.
-include 'microservices:billing-service'
-
-
+include 'common'
+include 'payments'
 

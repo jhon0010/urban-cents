@@ -1,3 +1,0 @@
-bootJar {
-    mainClass = 'com.urbancents.demo.BillingServiceApplication'
-}
