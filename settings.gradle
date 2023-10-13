@@ -1,3 +1,3 @@
 rootProject.name = 'urban-cents'
-include 'common'
-include 'payments'
+include 'microservices:common'
+include 'microservices:payments'
