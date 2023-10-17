@@ -1,12 +1,20 @@
 plugins {
 	id 'java'
 	id 'java-library'
-	id 'org.springframework.boot' version '2.5.7'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.springframework.boot' version '2.7.16'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 dependencies {
-    implementation project(path: ':microservices:common')
+  implementation project(path: ':common')
+}
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
 }
 
 allprojects {
@@ -20,25 +28,32 @@ allprojects {
 }
 
 subprojects {
+
 	apply plugin: 'java'
-	apply plugin: 'org.springframework.boot'
-	apply plugin: 'io.spring.dependency-management'
 
-	dependencies {
+	if (project.name != 'common') {
+		apply plugin: 'org.springframework.boot'
+		apply plugin: 'io.spring.dependency-management'
 
-		compileOnly 'org.projectlombok:lombok'
-		annotationProcessor 'org.projectlombok:lombok'
+		dependencies {
 
-		implementation('org.springframework.boot:spring-boot-gradle-plugin:2.3.3.RELEASE')
-		implementation('io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE')
-		implementation 'org.springframework.boot:spring-boot-starter-web'
+			compileOnly 'org.projectlombok:lombok'
+			annotationProcessor 'org.projectlombok:lombok'
 
-		testImplementation 'org.springframework.boot:spring-boot-starter-test'
-		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-		testImplementation 'com.h2database:h2'
+			implementation project(path: ':common')
 
-		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-		runtimeOnly 'com.h2database:h2'
+			implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+			implementation 'org.springframework.boot:spring-boot-starter-web'
+			testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+			runtimeOnly 'com.h2database:h2'
+		}
+
+		tasks.named('test') {
+			useJUnitPlatform()
+		}
+
 	}
+
 
 }
