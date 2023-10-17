@@ -32,3 +32,32 @@ To run a specific module, navigate to the module directory and run:
 ./gradlew :moduleName:bootRun
 ```
 Replace moduleName with the name of the module you wish to run.
+
+
+# Eureka server and enable service discovery 
+
+## Start the Eureka server
+
+To start the Eureka server, navigate to the `eureka-server` directory and run:
+
+```bash
+./gradlew clen build bootRun
+```
+Now you can access to http://localhost:8761/ Eureka service.
+
+## Enable service discovery
+
+To enable service discovery, we need to add the following configuration to the application.properties of the service we want to register with the Eureka server.
+
+```bash
+# eureka server client configuration
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+
+
+spring.config.import=optional:configserver:http://localhost:8761
+
+# Actuator Configuration to expose all endpoints
+management.endpoints.web.exposure.include=*
+```
