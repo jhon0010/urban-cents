@@ -1,3 +1,4 @@
 rootProject.name = 'urban-cents'
 include 'common'
 include 'payments'
+include 'eureka-server'
