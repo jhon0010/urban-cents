@@ -5,11 +5,13 @@ import com.urban.cents.entity.Bill;
 import com.urban.cents.entity.BillAdjustment;
 import com.urban.cents.repository.BillAdjustmentRepository;
 import com.urban.cents.repository.BillRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Log4j2
 @Service
 public class BillAdjustmentService {
 
@@ -27,18 +29,18 @@ public class BillAdjustmentService {
         Bill bill = this.billRepository.findById(billAdjustmentDTO.getBillId()).orElseThrow(() -> new RuntimeException("Bill not found"));
         BillAdjustment billAdjustment = BillAdjustment.from(billAdjustmentDTO);
         billAdjustment.setBill(bill);
-        System.out.println("billAdjustment creation " + billAdjustment.toString());
+        log.info("billAdjustment creation " + billAdjustment.toString());
         return this.billAdjustmentRepository.save(billAdjustment);
     }
 
     public BillAdjustment updateBillAdjustment(BillAdjustment billAdjustment) {
-        System.out.println("billAdjustment update request " + billAdjustment.toString());
+        log.info("billAdjustment update request " + billAdjustment.toString());
         return this.billAdjustmentRepository.save(billAdjustment);
     }
 
     public void deleteBillAdjustment(Long id) {
         this.billAdjustmentRepository.deleteById(id);
-        System.out.println("billAdjustment deleted");
+        log.info("billAdjustment deleted");
     }
 
     public BillAdjustment getBillAdjustment(Long id) {

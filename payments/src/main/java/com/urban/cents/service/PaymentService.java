@@ -2,11 +2,13 @@ package com.urban.cents.service;
 
 import com.urban.cents.entity.Payment;
 import com.urban.cents.repository.PaymentRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Log4j2
 @Service
 public class PaymentService {
 
@@ -18,18 +20,18 @@ public class PaymentService {
     }
 
     public Payment createPayment(Payment payment) {
-        System.out.println("Payment creation " + payment.toString());
+        log.info("Payment creation " + payment.toString());
         return this.paymentRepository.save(payment);
     }
 
     public Payment updatePayment(Payment payment) {
-        System.out.println("Payment update request " + payment.toString());
+        log.info("Payment update request " + payment.toString());
         return this.paymentRepository.save(payment);
     }
 
     public void deletePayment(Long id) {
         this.paymentRepository.deleteById(id);
-        System.out.println("Payment deleted");
+        log.info("Payment deleted");
     }
 
     public Payment getPayment(Long id) {

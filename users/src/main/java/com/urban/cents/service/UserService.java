@@ -2,11 +2,13 @@ package com.urban.cents.service;
 
 import com.urban.cents.entity.User;
 import com.urban.cents.repository.UserRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Log4j2
 @Service
 public class UserService {
 
@@ -18,18 +20,18 @@ public class UserService {
     }
 
     public User createUser(User User) {
-        System.out.println("User creation " + User.toString());
+        log.info("User creation " + User.toString());
         return this.userRepository.save(User);
     }
 
     public User updateUser(User User) {
-        System.out.println("User update request " + User.toString());
+        log.info("User update request " + User.toString());
         return this.userRepository.save(User);
     }
 
     public void deleteUser(Long id) {
         this.userRepository.deleteById(id);
-        System.out.println("User deleted");
+        log.info("User deleted");
     }
 
     public User getUser(Long id) {
