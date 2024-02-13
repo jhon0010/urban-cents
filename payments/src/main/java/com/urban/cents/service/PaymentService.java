@@ -17,14 +17,14 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
-    public void createPayment(Payment payment) {
-        this.paymentRepository.save(payment);
-        System.out.println("Payment created");
+    public Payment createPayment(Payment payment) {
+        System.out.println("Payment creation " + payment.toString());
+        return this.paymentRepository.save(payment);
     }
 
-    public void updatePayment(Payment payment) {
-        this.paymentRepository.save(payment);
-        System.out.println("Payment updated");
+    public Payment updatePayment(Payment payment) {
+        System.out.println("Payment update request " + payment.toString());
+        return this.paymentRepository.save(payment);
     }
 
     public void deletePayment(Long id) {

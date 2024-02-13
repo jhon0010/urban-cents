@@ -9,7 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient("payments")
+
+/**
+ *
+ * The org.springframework.cloud.openfeign.FeignClient annotation in the Spring Cloud OpenFeign framework is a powerful
+ * tool for creating declarative REST clients in a microservices architecture.
+ * By using the FeignClient annotation, you can define interfaces in your Spring application that automatically handle
+ * the HTTP request construction and execution to call remote REST services.
+ *
+ * When used with a service discovery tool like Netflix Eureka, you can refer to services by their service ID instead of hardcoding URLs.
+ * Service Discovery Integration: When used with a service discovery tool like Netflix Eureka, you can refer to services by their service ID instead of hardcoding URLs.
+ * Load Balancing: Integrates with Spring Cloud LoadBalancer to provide client-side load balancing.
+ * Resilience Patterns: Can be used with Spring Cloud Circuit Breaker or Netflix Hystrix for fault tolerance.
+ */
+@FeignClient(name="payments-services")
 public interface ServicePayments {
 
     @GetMapping("/{id}")

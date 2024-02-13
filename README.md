@@ -20,8 +20,9 @@ allprojects {
 ```
 
 # Building and Running
-To build the project, navigate to the project root directory and run:
+You can use gradle instead of gradlew if you have it installed in your system.
 
+To build the project, navigate to the project root directory and run:
 
 ```bash
 ./gradlew build
@@ -41,8 +42,14 @@ Replace moduleName with the name of the module you wish to run.
 To start the Eureka server, navigate to the `eureka-server` directory and run:
 
 ```bash
-./gradlew clen build bootRun
+./gradlew clean build bootRun
 ```
+or if you have a gradle installed in your system, you can run the following command:
+
+```bash
+gradle clean build bootRun
+```
+
 Now you can access to http://localhost:8761/ Eureka service.
 
 ## Enable service discovery

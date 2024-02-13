@@ -3,6 +3,7 @@ package com.urban.cents.controller;
 import com.urban.cents.entity.Payment;
 import com.urban.cents.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
+/**
+ * PaymentController
+ * Showcase a simple RESTful API for Payment entity.
+ */
 @RestController
 @RequestMapping("/api/v1/payments")
 public class PaymentController {
@@ -24,27 +31,23 @@ public class PaymentController {
     }
 
     @GetMapping("/{id}")
-    public Payment findById(@PathVariable Long id) {
-        return this.paymentService.getPayment(id);
+    public ResponseEntity<Payment> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(this.paymentService.getPayment(id));
     }
 
-    /*
-    {
-        "amount": 100,
-        "currency": "EUR",
-        "paymentMethod": "CREDIT_CARD",
-        "paymentStatus": "PAID",
-        "orderId": 1
-    }
+    /**
+     * Use the @Valid annotation to validate the request body (given the restrictions in the entity class).
+     * @param payment the payment to be created
+     * @return the created payment
      */
     @PostMapping
-    public void createPayment(@RequestBody Payment payment) {
-        this.paymentService.createPayment(payment);
+    public ResponseEntity<Payment> createPayment(@Valid @RequestBody Payment payment) {
+        return ResponseEntity.ok(this.paymentService.createPayment(payment));
     }
 
     @PutMapping("/{id}")
-    public void updatePayment(@PathVariable Long id, @RequestBody Payment payment) {
-        this.paymentService.updatePayment(payment);
+    public ResponseEntity<Payment> updatePayment(@PathVariable Long id, @RequestBody Payment payment) {
+        return ResponseEntity.ok(this.paymentService.updatePayment(payment));
     }
 
     @DeleteMapping("/{id}")

@@ -13,8 +13,8 @@ public class Main {
 
         public static void main(String[] args) {
 
-            System.out.println("Hello PaymentsApplication!!");
-            System.out.println("Hello PaymentsApplication!!" + UrbanStringUtils.reverse("Hello PaymentsApplication!!"));
+            System.out.println("Hello PaymentsApplication!!" +
+                    UrbanStringUtils.reverse("You can access the commons library from here!"));
             SpringApplication.run(Main.class, args);
         }
 
