@@ -34,6 +34,11 @@ To run a specific module, navigate to the module directory and run:
 ```
 Replace moduleName with the name of the module you wish to run.
 
+To debug it use the following command:
+
+```bash
+gradle bootRun --debug-jvm
+```
 
 # Eureka server and enable service discovery 
 
