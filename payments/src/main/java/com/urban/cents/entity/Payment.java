@@ -1,6 +1,7 @@
 package com.urban.cents.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.Column;
@@ -26,8 +27,9 @@ import java.time.LocalDateTime;
  * Also, we use the javax validation annotations to validate the fields of the entity.
  */
 @Data
+@NoArgsConstructor
 @Entity
-@Table(name = "payments")
+@Table(name = "PAYMENTS")
 public class Payment {
 
     @Id
@@ -57,7 +59,6 @@ public class Payment {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @NotNull
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 

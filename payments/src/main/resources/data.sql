@@ -1,0 +1,15 @@
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (1,100.00, 'USD', 'Completed', '2024-02-13', 'Payment for services', '2024-02-13 12:00:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (2,150.50, 'EUR', 'Pending', '2024-02-14', 'Online course subscription', '2024-02-14 13:00:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (3,75.20, 'GBP', 'Failed', '2024-02-15', 'E-book purchase', '2024-02-15 14:30:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (4,200.00, 'USD', 'Completed', '2024-02-16', 'Consultation fee', '2024-02-16 09:45:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (5,50.00, 'CAD', 'Completed', '2024-02-17', 'Software license', '2024-02-17 10:20:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (6,120.00, 'EUR', 'Pending', '2024-02-18', 'Gym membership', '2024-02-18 11:15:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (7,300.00, 'USD', 'Completed', '2024-02-19', 'Conference ticket', '2024-02-19 12:00:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (8,25.75, 'USD', 'Refunded', '2024-02-20', 'Product return', '2024-02-20 08:50:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (9,450.00, 'EUR', 'Completed', '2024-02-21', 'Online workshop', '2024-02-21 14:00:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (10,60.00, 'JPY', 'Failed', '2024-02-22', 'Subscription renewal', '2024-02-22 16:30:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (11,85.00, 'AUD', 'Pending', '2024-02-23', 'Domain registration', '2024-02-23 17:45:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (12,190.50, 'USD', 'Completed', '2024-02-24', 'Annual software update', '2024-02-24 18:00:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (13,250.00, 'GBP', 'Completed', '2024-02-25', 'Custom artwork commission', '2024-02-25 19:30:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (14,33.00, 'EUR', 'Completed', '2024-02-26', 'Book purchase', '2024-02-26 20:45:00');
+INSERT INTO payments (id,amount, currency, status, date, description, created_at) VALUES (15,99.99, 'USD', 'Completed', '2024-02-27', 'Video game pre-order', '2024-02-27 21:00:00');
