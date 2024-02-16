@@ -1,5 +1,5 @@
 server:
-  port:8081
+  port: 8081
 
 spring:
   cloud:
@@ -7,10 +7,6 @@ spring:
       server:
         git:
           uri: https://github.com/jhon0010/urban-cents.git
-          search-paths: config-data
+          searchPaths: config-data
           username: ${GIT_USERNAME}
           password: ${GIT_PASSWORD}
-  security:
-    user:
-      name: user
-      password: pass
