@@ -1,5 +1,6 @@
 package com.urban.cents.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.urban.cents.dtos.BillAdjustmentDTO;
 import lombok.Data;
 
@@ -8,15 +9,16 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-@Table(name = "bill_adjustments")
+@Table(name = "BILL_ADJUSTMENTS")
 public class BillAdjustment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bill_id", nullable = false)
+    @JoinColumn(name = "bill_id", nullable = false, insertable = false, updatable = false)
     private Bill bill;
 
     @Column(nullable = false)
